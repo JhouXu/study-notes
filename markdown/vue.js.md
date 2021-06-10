@@ -1,5 +1,24 @@
 # Vue.js 目录结构
 
+## vue cli
+
+```md
+# 全局安装vue脚手架
+$ npm install -g vue-cli
+
+# 通过vue脚手架初始化项目，使用webpack模板创建
+$ vue init webpack vue_demo
+
+# 进入创建的项目文件
+$ cd vue_demo
+
+# 下载依赖包
+$ npm install
+
+# 启动vue项目
+$ npm run dev
+```
+
 ## 包目录
 
 |  目录/文件   |                                        说明                                        |
