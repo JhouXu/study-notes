@@ -3,19 +3,24 @@
 ## vue cli
 
 ```md
-# 全局安装vue脚手架
+# 全局安装 vue 脚手架
+
 $ npm install -g vue-cli
 
-# 通过vue脚手架初始化项目，使用webpack模板创建
+# 通过 vue 脚手架初始化项目，使用 webpack 模板创建
+
 $ vue init webpack vue_demo
 
 # 进入创建的项目文件
+
 $ cd vue_demo
 
 # 下载依赖包
+
 $ npm install
 
-# 启动vue项目
+# 启动 vue 项目
+
 $ npm run dev
 ```
 
@@ -37,6 +42,45 @@ $ npm run dev
 |  index.html  |               首页入口文件，你可以添加一些 meta 信息或统计代码啥的。               |
 | package.json |                                   项目配置文件。                                   |
 |  README.md   |                           项目的说明文档，markdown 格式                            |
+
+## 项目打包
+
+打包成功的文件自动生成在 dist 文件目录下：
+
+```md
+$ npm run build
+```
+
+### 发布
+
+#### 使用静态服务工具
+
+```md
+$ npm install -g serve
+$ serve dist
+```
+
+访问：http://localhost:5000
+
+#### 使用动态 web 服务器(tomcat)
+
+- 修改配置项：webpack.prod.conf.js
+
+```js
+outout: {
+  publicPath: '/xxx/';
+}
+```
+
+- 重新打包：
+
+```md
+$ npm run build
+```
+
+- 修改 dist 文件夹为项目名称：xxx
+- 将 xxx 拷贝到运行的 tomcat 的 webapps 目录下
+- 访问：http://localhost:8080/xxx
 
 # Vue.js 模板语法
 
@@ -2637,48 +2681,47 @@ this.$http.post('/someUrl', [body], [options]).then(successCallback, errorCallba
 vue-resource 提供了 7 种请求 API(REST 风格)：
 
 ```js
-get(url, [options])
-head(url, [options])
-delete(url, [options])
-jsonp(url, [options])
-post(url, [body], [options])
-put(url, [body], [options])
-patch(url, [body], [options])
+get(url, [options]);
+head(url, [options]);
+delete (url, [options]);
+jsonp(url, [options]);
+post(url, [body], [options]);
+put(url, [body], [options]);
+patch(url, [body], [options]);
 ```
 
 除了 jsonp 以外，另外 6 种的 API 名称是标准的 HTTP 方法。
 
 options 参数说明:
-| 参数 |	类型 |	描述 |
-| :--: | :--: | :--: | 
-| url |	string |	请求的目标URL |
-| body |	Object, FormData, string |	作为请求体发送的数据 |
-| headers |	Object |	作为请求头部发送的头部对象 |
-| params |	Object |	作为URL参数的参数对象 |
-| method |	string |	HTTP方法 (例如GET，POST，...) |
-| timeout |	number |	请求超时（单位：毫秒） (0表示永不超时) |
-| before |	function(request) |	在请求发送之前修改请求的回调函数 |
-| progress |	function(event) |	用于处理上传进度的回调函数 ProgressEvent |
-| credentials |	boolean |	是否需要出示用于跨站点请求的凭据 |
-| emulateHTTP |	boolean |	是否需要通过设置X-HTTP-Method-Override头部并且以传统POST方式发送PUT，PATCH和DELETE请求。 |
-| emulateJSON |	boolean |	设置请求体的类型为application/x-www-form-urlencoded |
+| 参数 | 类型 | 描述 |
+| :--: | :--: | :--: |
+| url | string | 请求的目标 URL |
+| body | Object, FormData, string | 作为请求体发送的数据 |
+| headers | Object | 作为请求头部发送的头部对象 |
+| params | Object | 作为 URL 参数的参数对象 |
+| method | string | HTTP 方法 (例如 GET，POST，...) |
+| timeout | number | 请求超时（单位：毫秒） (0 表示永不超时) |
+| before | function(request) | 在请求发送之前修改请求的回调函数 |
+| progress | function(event) | 用于处理上传进度的回调函数 ProgressEvent |
+| credentials | boolean | 是否需要出示用于跨站点请求的凭据 |
+| emulateHTTP | boolean | 是否需要通过设置 X-HTTP-Method-Override 头部并且以传统 POST 方式发送 PUT，PATCH 和 DELETE 请求。 |
+| emulateJSON | boolean | 设置请求体的类型为 application/x-www-form-urlencoded |
 
 通过如下属性和方法处理一个请求获取到的响应对象：
-| 属性 |	类型 |	描述 |
-| :--: | :--: | :--: | 
-| url |	string |	响应的 URL 源 |
-| body |	Object, Blob, string |	响应体数据 |
-| headers |	Header |	请求头部对象 |
-| ok |	boolean |	当 HTTP 响应码为 200 到 299 之间的数值时该值为 true |
-| status |	number |	HTTP 响应码 |
-| statusText |	string |	HTTP 响应状态 |
+| 属性 | 类型 | 描述 |
+| :--: | :--: | :--: |
+| url | string | 响应的 URL 源 |
+| body | Object, Blob, string | 响应体数据 |
+| headers | Header | 请求头部对象 |
+| ok | boolean | 当 HTTP 响应码为 200 到 299 之间的数值时该值为 true |
+| status | number | HTTP 响应码 |
+| statusText | string | HTTP 响应状态 |
 
-
-| 方法 |	类型 |	描述 |
-| :--: | :--: | :--: | 
-| text() |	约定值 |	以字符串方式返回响应体 |
-| json() |	约定值 |	以格式化后的 json 对象方式返回响应体 |
-| blob() |	约定值 |	以二进制 Blob 对象方式返回响应体 |
+|  方法  |  类型  |                 描述                 |
+| :----: | :----: | :----------------------------------: |
+| text() | 约定值 |        以字符串方式返回响应体        |
+| json() | 约定值 | 以格式化后的 json 对象方式返回响应体 |
+| blob() | 约定值 |   以二进制 Blob 对象方式返回响应体   |
 
 # Vue.js 响应接口
 
@@ -2695,10 +2738,11 @@ Vue 不能检测到对象属性的添加或删除，最好的方式就是在初�
 Vue.set 方法用于设置对象的属性，它可以解决 Vue 无法检测添加属性的限制，语法格式如下：
 
 ```js
-Vue.set( target, key, value )
+Vue.set(target, key, value);
 ```
 
 参数说明：
+
 - target: 可以是对象或数组
 - key : 可以是字符串或数字
 - value: 可以是任何类型
@@ -2708,9 +2752,10 @@ Vue.set( target, key, value )
 Vue.delete 用于删除动态添加的属性 语法格式：
 
 ```js
-Vue.delete( target, key )
+Vue.delete(target, key);
 ```
 
 参数说明：
+
 - target: 可以是对象或数组
 - key : 可以是字符串或数字
