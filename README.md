@@ -9,8 +9,18 @@
 ```
 study-notes
 ├─ markdown
+│  ├─ CSS
+│  │  ├─ CSS Flex 弹性布局.md - 正在完善中
+│  │  ├─ CSS Float 浮动布局.md
+│  │  ├─ CSS Grid 网格布局.md - 正在完善中
+│  │  └─ CSS Position 定位布局.md - 正在完善中
 │  ├─ node.js.md
-│  └─ vue.js.md
+│  ├─ vscode
+│  │  ├─ ESLint.md
+│  │  └─ Prettier.md
+│  ├─ vue.js.md
+│  ├─ vue源码分析.md
+│  └─ 博客模板.md
 ├─ mindmap
 │  ├─ JavaScript.xmind
 │  ├─ React.xmind
@@ -22,7 +32,7 @@ study-notes
 │  └─ 技能图谱
 │     ├─ H5技能图谱.pdf
 │     ├─ 前端工程师技能图谱.pdf
-│     └─ 架构师技能图谱.  pdf
+│     └─ 架构师技能图谱.pdf
 └─ README.md
 ```
 
