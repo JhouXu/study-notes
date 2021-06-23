@@ -184,6 +184,30 @@ singleQuote = true
 
 可选项：
 
+- true - Example:
+
+```html
+<button
+  className="prettier-class"
+  id="prettier-id"
+  onClick={this.handleClick}>
+  Click Here
+</button>
+```
+
+- falsr - Example:
+
+```html
+<button
+  className="prettier-class"
+  id="prettier-id"
+  onClick={this.handleClick}
+>
+  Click Here
+</button>
+```
+
+
 | Default |      CLI Override       |         API Override         |
 | :-----: | :---------------------: | :--------------------------: |
 |  false  | --jsx-bracket-same-line | jsxBracketSameLine: \<bool\> |
