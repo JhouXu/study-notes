@@ -9,13 +9,13 @@
 
 <hr style=" border:solid; width:100px; height:1px;" color=#000000 size=1">
 
-# 一、 Position 定位布局
+# 一、Position 定位布局
 
 定位(positioning)能够让我们把一个元素从它原本在正常布局流(normal flow)中应该在的位置移动到另一个位置。定位(positioning)`并不是一种页面布局的方式`，它更像是让你去管理和微调页面中的一个特殊项的位置。
 
 有一些非常有用的技术在特定的布局下依赖于 position 属性。同时，理解定位(positioning)也能够帮助你理解正常布局流(normal flow)，理解把一个元素移出正常布局流(normal flow)是怎么一回事。
 
-# 二、 属性值
+# 二、属性值
 
 在 CSS 中，可以使用 position 属性快速定义这个标签是某种定位类型。通过 top，right，bottom 和 left 属性决定了该元素的最终位置。
 
@@ -44,7 +44,7 @@ position: static | relative | absolute | fixed | sticky;
 - inherit - 规定应该从父元素中继承对应的属性值。
 - auto - 通过浏览器计算方向位置（默认值）。
 
-# 三、 实例
+# 三、实例
 
 ## 相对定位
 
