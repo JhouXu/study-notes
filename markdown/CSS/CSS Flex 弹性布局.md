@@ -43,7 +43,7 @@ Flex 弹性布局，定义了一种针对用户界面设计而优化的 CSS 盒�
 - flex - 将元素渲染成为一个块级容器
 - inline-flex - 渲染成一个行内伸缩容器。
 
->  flex和inline-flex区别在于，inline-flex容器为inline特性，因此可以和图片文字一行显示；flex容器保持块状特性，宽度默认100%，不和内联元素一行显示。
+> flex 和 inline-flex 区别在于，inline-flex 容器为 inline 特性，因此可以和图片文字一行显示；flex 容器保持块状特性，宽度默认 100%，不和内联元素一行显示。
 
 语法：
 
@@ -52,6 +52,49 @@ Flex 弹性布局，定义了一种针对用户界面设计而优化的 CSS 盒�
   display: flex | inline-flex;
 }
 ```
+
+```html
+<style>
+  .container {
+    background-color: #7f8c8d;
+    border: 5px dashed #34495e;
+    /* flex 伸缩布局-开始 */
+    display: flex;
+    /* flex-direction: row | row-reverse | column | column-reverse; */
+    /* flex-wrap: nowrap | wrap | wrap-reverse; */
+    /* flex-flow: <row | row-reverse | column | column-reverse> || <nowrap | wrap | wrap-reverse>; */
+    /* flex 伸缩布局-结束 */
+  }
+  .item-box {
+    margin: 5px;
+    width: 100px;
+    height: 50px;
+    background-color: #ecf0f1;
+    color: #000;
+    line-height: 50px;
+    text-align: center;
+  }
+  .item-box:nth-of-type(odd) {
+    height: 80px;
+    line-height: 80px;
+  }
+</style>
+<body>
+  <div class="container">
+    <div class="item-box item1">item1</div>
+    <div class="item-box item2">item2</div>
+    <div class="item-box item3">item3</div>
+    <div class="item-box item4">item4</div>
+    <div class="item-box item5">item5</div>
+    <div class="item-box item6">item6</div>
+    <div class="item-box item7">item7</div>
+    <div class="item-box item8">item8</div>
+  </div>
+</body>
+```
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20210624155453277.png)
+
 
 ## CSS 属性
 
@@ -66,6 +109,9 @@ Flex 弹性布局，定义了一种针对用户界面设计而优化的 CSS 盒�
 - column - flex 容器的主轴和块轴相同。主轴起点与主轴终点和书写模式的前后点相同
 - column-reverse - 表现和 column 相同，但是置换了主轴起点和主轴终点
 
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20210624155516797.png)
+
+
 ### flex-wrap
 
 指定 flex 元素`单行显示还是多行显示`。如果允许换行，这个属性允许你控制行的堆叠方向。
@@ -75,6 +121,9 @@ Flex 弹性布局，定义了一种针对用户界面设计而优化的 CSS 盒�
 - nowrap - flex 的元素被摆放到到一行，这可能导致溢出 flex 容器。 cross-start 会根据 flex-direction 的值 相当于 start 或 before。
 - wrap - flex 元素 被打断到多个行中。cross-start 会根据 flex-direction 的值选择等于 start 或 before。cross-end 为确定的 cross-start 的另一端。
 - wrap-reverse - 和 wrap 的行为一样，但是 cross-start 和 cross-end 互换。
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20210624155554689.png)
+
 
 ### flex-flow
 
@@ -97,6 +146,48 @@ flex-flow 属性是 flex-direction 和 flex-wrap 的简写。
 属性值：
 
 - \<number\>。负值无效，默认为 0。
+
+```html
+<style>
+  .container {
+    margin-top: 30px;
+    background-color: #7f8c8d;
+    border: 5px dashed #34495e;
+    display: flex;
+  }
+  .item-box {
+    margin: 5px;
+    width: 100px;
+    height: 50px;
+    background-color: #ecf0f1;
+    color: #000;
+    line-height: 50px;
+    text-align: center;
+  }
+  .item-box:nth-of-type(odd) {
+    height: 80px;
+    line-height: 80px;
+  }
+  .item1 {
+    flex-grow: 1; /* 设置 item1 的增长系数 */
+  }
+  .item2 {
+    flex-grow: 2; /* 设置 item2 的增长系数 */
+  }
+</style>
+<body>
+  <div class="container">
+    <div class="item-box item1">item1</div>
+    <div class="item-box item2">item2</div>
+    <div class="item-box item3">item3</div>
+    <div class="item-box item4">item4</div>
+    <div class="item-box item5">item5</div>
+  </div>
+</body>
+```
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20210624155609790.png)
+
 
 ### flex-shrink
 
@@ -184,17 +275,36 @@ flex CSS 简写属性设置了弹性项目如何增大或缩小以适应其弹�
 
 规定了弹性容器中的可伸缩项目在布局时的顺序。元素按照 order 属性的值的增序进行布局。拥有相同 order 属性值的元素按照它们在源代码中出现的顺序进行布局。
 
-order 仅仅对元素的视觉顺序 (visual order) 产生作用，并不会影响元素的逻辑或 tab 顺序。 order 不可以用于非视觉媒体，例如 speech。
+order `仅仅对元素的视觉顺序 (visual order) 产生作用`，并不会影响元素的逻辑或 tab 顺序。 order 不可以用于非视觉媒体，例如 speech。
 
 属性值：
 
-- \<integer\> - 表示此可伸缩项目所在的次序组。
+- \<integer\> - 表示此可伸缩项目所在的次序组。默认值：0。
+
+```html
+<style>
+  其它css样式同上 {
+  }
+  .item1 {
+    order: 2; /* 设置 order 排列次序 */
+  }
+  .item2 {
+    order: 1; /* 设置 order 排列次序 */
+  }
+</style>
+<body>
+  HTML 结构同上
+</body>
+```
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20210624155623986.png)
+
 
 ## 对齐属性
 
 ### align-content
 
-设置了浏览器如何沿着弹性盒子布局的纵轴和网格布局的主轴在内容项之间和周围分配空间。
+设置了浏览器如何沿着弹性盒子布局的纵轴和网格布局的主轴在内容项之间和周围分配空间。`弹性盒子需要有多余空间，并且该属性对单行弹性盒子模型无效。（即：带有 flex-wrap: nowrap）。`
 
 可选值：
 
@@ -206,8 +316,7 @@ order 仅仅对元素的视觉顺序 (visual order) 产生作用，并不会影�
 - normal - 这些项按默认位置填充，就像没有设置对齐内容值一样。
 - baseline
 - first baseline
-- last baseline - Specifies participation in first- or last-baseline alignment: aligns the alignment baseline of the box’s first or last baseline set with the corresponding baseline in the shared first or last baseline set of all the boxes in its baseline-sharing group.
-  The fallback alignment for first baseline is start, the one for last baseline is end.
+- last baseline
 - space-between - 所有行在容器中平均分布。相邻两行间距相等。容器的垂直轴起点边和终点边分别与第一行和最后一行的边对齐。
 - space-around - 所有行在容器中平均分布，相邻两行间距相等。容器的垂直轴起点边和终点边分别与第一行和最后一行的距离是相邻两行间距的一半。
 - space-evenly - 所有行沿垂直轴均匀分布在对齐容器内。每对相邻的项之间的间距，主开始边和第一项，以及主结束边和最后一项，都是完全相同的。
@@ -215,9 +324,50 @@ order 仅仅对元素的视觉顺序 (visual order) 产生作用，并不会影�
 - safe - 与对齐关键字一起使用。如果所选的关键字意味着项溢出对齐容器（data loss），则将采用备用策略对项进行对齐，就像启动了 start 对齐模式一样。
 - unsafe - 与对齐关键字一起使用。无论元素和对齐容器的相对大小如何、是否会导致一些元素溢出可见范围（data loss），都使用给定的对齐值。
 
+```html
+<style>
+  .container {
+    margin-top: 30px;
+    height: 400px; /* 设置弹性盒子的高度，需要大于子盒子的默认高度 */
+    background-color: #7f8c8d;
+    border: 5px dashed #34495e;
+    /* flex 伸缩布局-开始 */
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    /* flex 伸缩布局-结束 */
+  }
+  .item-box {
+    margin: 5px;
+    width: 100px;
+    height: 50px;
+    background-color: #ecf0f1;
+    color: #000;
+    line-height: 50px;
+    text-align: center;
+  }
+  .item-box:nth-of-type(odd) {
+    height: 80px;
+    line-height: 80px;
+  }
+</style>
+<body>
+  <div class="container">
+    <div class="item-box item1">item1</div>
+    <div class="item-box item2">item2</div>
+    <div class="item-box item3">item3</div>
+    <div class="item-box item4">item4</div>
+    <div class="item-box item5">item5</div>
+  </div>
+</body>
+```
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20210624155637250.png)
+
+
 ### align-items
 
-align-items 属性将所有直接子节点上的 align-self 值设置为一个组。
+align-items 属性将所有直接子节点上的 align-self 值设置为一个组。`实现弹性布局中子元素的交叉轴上对齐`。
 
 可选值：
 
@@ -232,20 +382,58 @@ align-items 属性将所有直接子节点上的 align-self 值设置为一个�
 - start - The item is packed flush to each other toward the start edge of the alignment container in the appropriate axis.
 - end - The item is packed flush to each other toward the end edge of the alignment container in the appropriate axis.
 - center - 元素在侧轴居中。如果元素在侧轴上的高度高于其容器，那么在两个方向上溢出距离相同。
-- left - The items are packed flush to each other toward the left edge of the alignment container. If the property’s axis is not parallel with the inline axis, this value behaves like start.
-- right - The items are packed flush to each other toward the right edge of the alignment container in the appropriate axis. If the property’s axis is not parallel with the inline axis, this value behaves like start.
-- self-start - The items is packed flush to the edge of the alignment container of the start side of the item, in the appropriate axis.
-- self-end - The item is packed flush to the edge of the alignment container of the end side of the item, in the appropriate axis.
+- left
+- right
+- self-start
+- self-end
 - baseline
 - first baseline
 - last baseline - 所有元素向基线对齐。侧轴起点到元素基线距离最大的元素将会于侧轴起点对齐以确定基线。
 - stretch - 弹性元素被在侧轴方向被拉伸到与容器相同的高度或宽度。
-- safe - Used alongside an alignment keyword. If the chosen keyword means that the item overflows the alignment container causing data loss, the item is instead aligned as if the alignment mode were start.
-- unsafe - Used alongside an alignment keyword. Regardless of the relative sizes of the item and alignment container and whether overflow which causes data loss might happen, the given alignment value is honored.
+- safe
+- unsafe
+
+```html
+<style>
+  .container {
+    margin-top: 30px;
+    background-color: #7f8c8d;
+    border: 5px dashed #34495e;
+    /* flex 伸缩布局-开始 */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    /* flex 伸缩布局-结束 */
+  }
+  .item-box {
+    margin: 5px;
+    width: 100px;
+    height: 50px;
+    background-color: #ecf0f1;
+    color: #000;
+    line-height: 50px;
+    text-align: center;
+  }
+  .item-box:nth-of-type(odd) {
+    height: 80px;
+    line-height: 80px;
+  }
+</style>
+<div class="container">
+  <div class="item-box item1">item1</div>
+  <div class="item-box item2">item2</div>
+  <div class="item-box item3">item3</div>
+  <div class="item-box item4">item4</div>
+  <div class="item-box item5">item5</div>
+</div>
+```
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20210624155650210.png)
+
 
 ### align-self
 
-会对齐当前 grid 或 flex 行中的元素，并覆盖已有的 align-items 的值。align-self 属性不适用于块类型的盒模型和表格单元。如果任何 flexbox 元素的侧轴方向 margin 值设置为 auto，则会忽略 align-self。
+会对齐当前 grid 或 flex 行中的元素，并覆盖已有的 align-items 的值。align-self 属性不适用于块类型的盒模型和表格单元。如果任何 flexbox 元素的侧轴方向 margin 值设置为 auto，则会忽略 align-self。`控制的是当个元素的对齐方式`。
 
 可选值：
 
@@ -256,18 +444,57 @@ align-items 属性将所有直接子节点上的 align-self 值设置为一个�
   - flex 布局中表现为 stretch。
   - For grid items, this keyword leads to a behavior similar to the one of stretch, except for boxes with an aspect ratio or an intrinsic sizes where it behaves like start.
   - 在块级和表格单元中无效。
-- self-start - Aligns the items to be flush with the edge of the alignment container corresponding to the item's start side in the cross axis.
-- self-end - Aligns the items to be flush with the edge of the alignment container corresponding to the item's end side in the cross axis.
+- self-start
+- self-end
 - flex-start - flex 元素会对齐到 cross-axis 的首端。
 - flex-end - flex 元素会对齐到 cross-axis 的尾端。
 - center - flex 元素会对齐到 cross-axis 的中间，如果该元素的 cross-size 尺寸大于 flex 容器，将在两个方向均等溢出。
 - baseline
 - first baseline
-- last baseline - Specifies participation in first- or last-baseline alignment: aligns the alignment baseline of the box’s first or last baseline set with the corresponding baseline in the shared first or last baseline set of all the boxes in its baseline-sharing group.
-  The fallback alignment for first baseline is start, the one for last baseline is end.
-  flex 元素将会基于容器的宽和高，按照自身 margin box 的 cross-size 拉伸。If the combined size of the items along the cross axis is less than the size of the alignment container and the item is auto-sized, its size is increased equally (not proportionally), while still respecting the constraints imposed by max-height/max-width (or equivalent functionality), so that the combined size of all auto-sized items exactly fills the alignment container along the cross axis.
-- safe - If the size of the item overflows the alignment container, the item is instead aligned as if the alignment mode were start.
-- unsafe - Regardless of the relative sizes of the item and alignment container, the given alignment value is honored.
+- last baseline
+- safe
+- unsafe
+
+```html
+<style>
+  .container {
+    margin-top: 30px;
+    background-color: #7f8c8d;
+    border: 5px dashed #34495e;
+    /* flex 伸缩布局-开始 */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    /* flex 伸缩布局-结束 */
+  }
+  .item-box {
+    margin: 5px;
+    width: 100px;
+    height: 50px;
+    background-color: #ecf0f1;
+    color: #000;
+    line-height: 50px;
+    text-align: center;
+  }
+  .item-box:nth-of-type(odd) {
+    height: 80px;
+    line-height: 80px;
+  }
+  .item2 {
+    align-self: flex-end;
+  }
+</style>
+<div class="container">
+  <div class="item-box item1">item1</div>
+  <div class="item-box item2">item2</div>
+  <div class="item-box item3">item3</div>
+  <div class="item-box item4">item4</div>
+  <div class="item-box item5">item5</div>
+</div>
+```
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20210624155700166.png)
+
 
 ### justify-content
 
@@ -283,38 +510,57 @@ align-items 属性将所有直接子节点上的 align-self 值设置为一个�
 - right - 元素以容器右边缘为基准，一个挨着一个对齐,如果属性轴与内联轴不平行，则 right 的行为类似于 end。
 - baseline
 - first baseline
-- last baseline - Specifies participation in first- or last-baseline alignment: aligns the alignment baseline of the box’s first or last baseline set with the corresponding baseline in the shared first or last baseline set of all the boxes in its baseline-sharing group.
-  The fallback alignment for first baseline is start, the one for last baseline is end.
+- last baseline
 - space-between - 在每行上均匀分配弹性元素。相邻元素间距离相同。每行第一个元素与行首对齐，每行最后一个元素与行尾对齐。
-- space-around - 在每行上均匀分配弹性元素。相邻元素间距离相同。每行第一个元素到行首的距离和每行最后一个元素到行尾的距离将会是相邻元素之间距离的一半。
+- space-around - 在每行上均匀分 配弹性元素。相邻元素间距离相同。每行第一个元素到行首的距离和每行最后一个元素到行尾的距离将会是相邻元素之间距离的一半。
 - space-evenly - flex 项都沿着主轴均匀分布在指定的对齐容器中。相邻 flex 项之间的间距，主轴起始位置到第一个 flex 项的间距,，主轴结束位置到最后一个 flex 项的间距，都完全一样。
-- stretch - If the combined size of the items is less than the size of the alignment container, any auto-sized items have their size increased equally (not proportionally), while still respecting the constraints imposed by max-height/max-width (or equivalent functionality), so that the combined size exactly fills the alignment container along the main axis.
+- stretch
 - safe - 与对齐关键字一起使用，如果选定的关键字会导致元素溢出容器造成数据丢失，那么将会使用 start 代替它。
-- unsafe - Regardless of the relative sizes of the item and alignment container, the given alignment value is honored.
+- unsafe
+
+```html
+<style>
+  .container {
+    margin-top: 30px;
+    background-color: #7f8c8d;
+    border: 5px dashed #34495e;
+    /* flex 伸缩布局-开始 */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* flex 伸缩布局-结束 */
+  }
+  .item-box {
+    margin: 5px;
+    width: 100px;
+    height: 50px;
+    background-color: #ecf0f1;
+    color: #000;
+    line-height: 50px;
+    text-align: center;
+  }
+  .item-box:nth-of-type(odd) {
+    height: 80px;
+    line-height: 80px;
+  }
+</style>
+<body>
+  <div class="container">
+    <div class="item-box item1">item1</div>
+    <div class="item-box item2">item2</div>
+    <div class="item-box item3">item3</div>
+    <div class="item-box item4">item4</div>
+    <div class="item-box item5">item5</div>
+  </div>
+</body>
+```
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20210624155711311.png)
+
 
 ### place-content
 
 place-content 属性是 align-content 和 justify-content 的简写. 使用这两个属性的值可以用于任何的布局情况。
-
-可选值：
-
-- start - 所有的子元素堆叠在父元素上合适的轴线上的起点对齐。
-- end - 所有的子元素堆叠在父元素上合适的轴线上的终点对齐
-- flex-start - 所有的子元素堆叠在父元素的主轴或交叉轴上起点对齐，主要取决于 flex-direction 的设置。
-- 仅适用于 flex 布局的子元素.。如果父元素没有设置为 flex，flex-start 将被视为 start
-- flex-end - 所有的子元素堆叠在父元素的主轴或交叉轴上终点对齐，主要取决于 flex-direction 的设置。
-- 仅适用于 flex 布局的子元素.。如果父元素没有设置为 flex，flex-end 将被视为 end
-- center - 所有的子元素堆叠在父元素的中间对齐
-- left - The items are packed flush to each other toward the left edge of the alignment container. If the property’s axis is not parallel with the inline axis, this value behaves like start.
-- right - The items are packed flush to each other toward the right edge of the alignment container in the appropriate axis. If the property’s axis is not parallel with the inline axis, this value behaves like start.
-- space-between - The items are evenly distributed within the alignment container. The spacing between each pair of adjacent items is the same. The first item is flush with the main-start edge, and the last item is flush with the main-end edge.
-- baseline
-- first baseline
-- last baseline - Specifies participation in first- or last-baseline alignment: aligns the alignment baseline of the box’s first or last baseline set with the corresponding baseline in the shared first or last baseline set of all the boxes in its baseline-sharing group.
-  The fallback alignment for first baseline is start, the one for last baseline is end.
-- space-around - The items are evenly distributed within the alignment container. The spacing between each pair of adjacent items is the same. The empty space before the first and after the last item equals half of the space between each pair of adjacent items.
-- space-evenly - The items are evenly distributed within the alignment container. The spacing between each pair of adjacent items, the main-start edge and the first item, and the main-end edge and the last item, are all exactly the same.
-- stretch - If the combined size of the items is less than the size of the alignment container, any auto-sized items have their size increased equally (not proportionally), while still respecting the constraints imposed by max-height/max-width (or equivalent functionality), so that the combined size exactly fills the alignment container
 
 ### row-gap
 
@@ -333,4 +579,64 @@ place-content 属性是 align-content 和 justify-content 的简写. 使用这�
 - \<length\> - 网格线之间的间隙宽度。
 - \<percentage\> - 网格线直接的间隙宽度，相对网格容器的百分比。
 
+```html
+<style>
+  .container {
+    margin-top: 30px;
+    background-color: #7f8c8d;
+    border: 5px dashed #34495e;
+    /* flex 伸缩布局-开始 */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 10px;
+    /* flex 伸缩布局-结束 */
+  }
+  .item-box {
+    margin: 5px;
+    width: 100px;
+    height: 50px;
+    background-color: #ecf0f1;
+    color: #000;
+    line-height: 50px;
+    text-align: center;
+  }
+  .item-box:nth-of-type(odd) {
+    height: 80px;
+    line-height: 80px;
+  }
+</style>
+<body>
+  <div class="container">
+    <div class="item-box item1">item1</div>
+    <div class="item-box item2">item2</div>
+    <div class="item-box item3">item3</div>
+    <div class="item-box item4">item4</div>
+    <div class="item-box item5">item5</div>
+  </div>
+</body>
+```
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/2021062415572382.png)
+
+
+<hr style=" border:solid; width:100px; height:1px;" color=#000000 size=1">
+
+# 总结
+
+弹性布局是现在比较流行的布局方式了，我们分别从如何定义一个弹性盒子出发，学习关于弹性布局的专业名字，并将其子元素控制的 css 属性做了深入的认识与比较。
+
+在 css 的一般属性中，可以控制主轴方向、是否换行以及对 flex 元素的缩放进行测试；其次是对齐属性的认识，关于交叉轴的对齐方式有三种，分别是：align-content（控制除子元素外的对于空间对齐），align-items（为子元素行中空间对齐），align-self（单一控制某一个 flex 子元素的对齐。然后就是关于主轴上的元素对齐，最后，属性 gap 则是控制子元素之间的间隔。
+
+本文介绍到的css属性有很多，感兴趣的小伙伴们可以运行测试。
+
+<br />
+<br />
+<br />
+
+`最后，如果您有更好的方法，欢迎在留言区中分享；或者实际操作中遇到什么问题均可留言或者私信我，感谢您的观看！`
+
+官方文档：[ 链接描述](链接地址)
+
+[MDN Web Docs - Basic Concepts of Flexbox](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox)
 [MDN Web Docs - CSS Flexible Box Layout](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout)
