@@ -10,7 +10,7 @@
 study-notes
 ├─ markdown
 │  ├─ CSS
-│  │  ├─ CSS Flex 弹性布局.md - 正在完善中
+│  │  ├─ CSS Flex 弹性布局.md
 │  │  ├─ CSS Float 浮动布局.md
 │  │  ├─ CSS Grid 网格布局.md - 正在完善中
 │  │  └─ CSS Position 定位布局.md
