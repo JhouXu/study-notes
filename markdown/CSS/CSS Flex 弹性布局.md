@@ -636,7 +636,7 @@ place-content 属性是 align-content 和 justify-content 的简写. 使用这�
 
 `最后，如果您有更好的方法，欢迎在留言区中分享；或者实际操作中遇到什么问题均可留言或者私信我，感谢您的观看！`
 
-官方文档：[ 链接描述](链接地址)
+官方文档：
 
 [MDN Web Docs - Basic Concepts of Flexbox](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox)
 [MDN Web Docs - CSS Flexible Box Layout](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout)
