@@ -18,10 +18,11 @@ study-notes
 │  │     ├─ position-absolute.png
 │  │     ├─ position-absolute1.png
 │  │     └─ position-relative.png
-│  ├─ node.js.md
 │  ├─ VScode
 │  │  ├─ ESLint.md
 │  │  └─ Prettier.md
+│  ├─ node.js.md
+│  ├─ touch触摸事件以及常用触摸功能.md
 │  ├─ vue.js.md
 │  ├─ vue源码分析.md
 │  └─ 博客模板.md
