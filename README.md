@@ -8,23 +8,23 @@
 
 ```
 study-notes
+├─ .gitignore
 ├─ markdown
-│  ├─ CSS
+│  ├─ css
 │  │  ├─ CSS Flex 弹性布局.md
 │  │  ├─ CSS Float 浮动布局.md
-│  │  ├─ CSS Grid 网格布局.md - 正在完善中
-│  │  └─ CSS Position 定位布局.md
-│  │  └─ images
-│  │     ├─ position-absolute.png
-│  │     ├─ position-absolute1.png
-│  │     └─ position-relative.png
-│  ├─ VScode
+│  │  ├─ CSS Grid 网格布局.md
+│  │  ├─ CSS Position 定位布局.md
+│  │  ├─ CSS3 转换过渡动画.md
+│  ├─ javascript
+│  │  └─ touch触摸事件以及常用触摸功能.md
+│  ├─ node.js.md
+│  ├─ vscode
 │  │  ├─ ESLint.md
 │  │  └─ Prettier.md
-│  ├─ node.js.md
-│  ├─ touch触摸事件以及常用触摸功能.md
-│  ├─ vue.js.md
-│  ├─ vue源码分析.md
+│  ├─ vue.js
+│  │  ├─ vue.js.md
+│  │  └─ vue源码分析.md
 │  └─ 博客模板.md
 ├─ mindmap
 │  ├─ JavaScript.xmind
