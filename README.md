@@ -1,4 +1,4 @@
-# Study Notes readme
+# Study Notes
 
 ## 关于
 
